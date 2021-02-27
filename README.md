@@ -1,3 +1,8 @@
+<!--
+ * @Author: A9ia
+ * @Date: 2021-01-26 15:00:18
+ * @LastEditTime: 2021-02-27 17:28:49
+-->
 # hackernews-async-ts
 
 [Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
@@ -5,7 +10,7 @@
 ## QuickStart
 
 Firstly, change `database\config.json` and `config\config.default.ts` databases config.
-Secondly, run `npx sequelize db:migrate` to migrate database.
+Secondly, run `npx sequelize db:migrate` and `npx sequelize-cli db:seed:all` to migrate database.
 
 ### Development
 
