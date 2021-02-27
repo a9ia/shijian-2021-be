@@ -1,13 +1,13 @@
-import { Model, STRING, INTEGER } from 'sequelize'
-import { Application } from 'egg'
+import { Model, STRING, INTEGER } from 'sequelize';
+import { Application } from 'egg';
 
 class Teammates extends Model {
-  id: number
-  netId: string
-  teamId: string
-  cap: number
-  vice: number
-  static associate: () => any
+  id: number;
+  netId: string;
+  teamId: string;
+  cap: number;
+  vice: number;
+  static associate: () => any;
 }
 
 export default (app:Application) => {
@@ -16,22 +16,23 @@ export default (app:Application) => {
     netId: STRING,
     teamId: STRING,
     cap: INTEGER,
-    vice: INTEGER
+    vice: INTEGER,
   }, {
     modelName: 'teammates',
     sequelize: app.model,
-    underscored: true
-  })
+    underscored: true,
+    timestamps: false,
+  });
 
   Teammates.associate = () => {
-    app.model.Teammates.belongsTo(app.model.Teams,{
-      foreignKey:'teamId',
-      as: 'teamInfo'
-    })
-    app.model.Teammates.belongsTo(app.model.Users,{
-      foreignKey:'netId',
-      as: 'userInfo'
-    })
-  }
-  return Teammates
-}
+    app.model.Teammates.belongsTo(app.model.Teams, {
+      foreignKey: 'teamId',
+      as: 'teamInfo',
+    });
+    app.model.Teammates.belongsTo(app.model.Users, {
+      foreignKey: 'netId',
+      as: 'userInfo',
+    });
+  };
+  return Teammates;
+};
